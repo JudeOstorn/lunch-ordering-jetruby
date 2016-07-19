@@ -1,0 +1,16 @@
+
+<h3><%= link_to 'New Menu', new_menu_path if current_user.admin? %></h3> 
+  
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Menu on Monday</h1>
+<div class="table-responsive">
+  <table class="table">
+    <%= render 'thead_form' %>
+    <tbody>  
+      <%= render(@menus.monday) %>
+    </tbody>
+  </table>
+</div> 
+<br>

@@ -1,0 +1,54 @@
+<%= simple_form_for(@menu) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :order_date, :input_html => { :value => Time.now.strftime("%A") } %>
+    <%= f.input :title %>
+    <%= f.input :dish_category, as: :radio_buttons,  collection: ["First course", "Main course", "Drink"] %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+
+
+
+<%= simple_form_for(@menu) do |f| %>
+  <%#= form_for(@menu) do |f| %>
+
+  <%= render 'shared/error_messages', object: @menu %>
+
+  <%#= f.label :order_date %>
+  <%#= f.text_field :order_date, :input_html => { :value => Time.now.strftime("%A") }, class: 'form-control' %>
+  
+  <div class="form-inputs">
+  <%= f.input :order_date, :input_html => { :value => Time.now.strftime('%A') } %>
+  </div>
+  
+  <%= f.label :title%>
+  <%= f.text_field :title, class: 'form-control' %>
+
+  <%= f.label :dish_category, class: "radio-button" do%>
+    <%= label_tag(:dish_category, "First course") %>
+    <%= radio_button_tag(:dish_category, "First course") %>
+    
+    <%= label_tag(:dish_category, "Main course") %>
+    <%= radio_button_tag(:dish_category, "Main course") %>
+    
+    <%= label_tag(:dish_category, "Drink") %>
+    <%= radio_button_tag(:dish_category, "Drink") %>
+  <%end%>
+<p></p>
+  <%= f.label :description %>
+  <%= f.text_field :description, class: 'form-control' %>
+  
+  <%= f.label :price %>
+  <%= f.text_field :price, class: 'form-control' %>
+
+  <%= f.submit "...", class: "btn btn-primary" %>
+<% end %>

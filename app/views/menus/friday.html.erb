@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+<h3><%= link_to 'New Menu', new_menu_path %></h3> 
+<h1>Listing Menu on Friday</h1>
+<div class="table-responsive">
+  <table class="table">
+    <%= render 'thead_form' %>
+    <tbody>  
+      <%= render(@menus.friday) %>
+    </tbody>
+  </table>
+</div> 
+<br>

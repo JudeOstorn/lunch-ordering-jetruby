@@ -33,5 +33,7 @@ class Menu < ActiveRecord::Base
       errors.add(:base, 'Line Items present')
       return false
     end
-  end
+  end 
+
 end
+

@@ -16,7 +16,6 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-
 gem 'rubocop'
 gem 'bootstrap-sass'
 gem 'devise'
@@ -53,22 +52,22 @@ group :test do
 end
 
 group :production do
-  #gem 'pg'
+  # gem 'pg'
   gem 'rails_12factor'
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
-  gem 'spring'  
+  gem 'spring'
   gem 'better_errors'
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
-  gem 'hub', :require=>nil
+  gem 'hub', require: nil
   gem 'rails_layout'
-  gem 'rb-fchange', :require=>false
-  gem 'rb-fsevent', :require=>false
-  gem 'rb-inotify', :require=>false
+  gem 'rb-fchange', require: false
+  gem 'rb-fsevent', require: false
+  gem 'rb-inotify', require: false
   gem 'spring-commands-rspec'
 end
 

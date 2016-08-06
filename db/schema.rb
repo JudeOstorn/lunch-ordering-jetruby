@@ -10,57 +10,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803151054) do
-
+ActiveRecord::Schema.define(version: 20_160_803_151_054) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "carts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'carts', force: :cascade do |t|
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "line_items", force: :cascade do |t|
-    t.integer  "menu_id"
-    t.integer  "cart_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "quantity",   default: 1
-    t.index ["cart_id"], name: "index_line_items_on_cart_id", using: :btree
-    t.index ["menu_id"], name: "index_line_items_on_menu_id", using: :btree
+  create_table 'line_items', force: :cascade do |t|
+    t.integer  'menu_id'
+    t.integer  'cart_id'
+    t.datetime 'created_at',             null: false
+    t.datetime 'updated_at',             null: false
+    t.integer  'quantity', default: 1
+    t.index ['cart_id'], name: 'index_line_items_on_cart_id', using: :btree
+    t.index ['menu_id'], name: 'index_line_items_on_menu_id', using: :btree
   end
 
-  create_table "menus", force: :cascade do |t|
-    t.string   "order_date",    default: "2016-07-18"
-    t.string   "title"
-    t.text     "description"
-    t.decimal  "price"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.string   "dish_category"
+  create_table 'menus', force: :cascade do |t|
+    t.string   'order_date', default: '2016-07-18'
+    t.string   'title'
+    t.text     'description'
+    t.decimal  'price'
+    t.datetime 'created_at',                           null: false
+    t.datetime 'updated_at',                           null: false
+    t.string   'dish_category'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.boolean  "admin",                  default: false
-    t.string   "name"
-    t.string   "username"
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-    t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
+  create_table 'users', force: :cascade do |t|
+    t.string   'email',                  default: '',    null: false
+    t.string   'encrypted_password',     default: '',    null: false
+    t.string   'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.integer  'sign_in_count', default: 0, null: false
+    t.datetime 'current_sign_in_at'
+    t.datetime 'last_sign_in_at'
+    t.inet     'current_sign_in_ip'
+    t.inet     'last_sign_in_ip'
+    t.datetime 'created_at',                             null: false
+    t.datetime 'updated_at',                             null: false
+    t.boolean  'admin', default: false
+    t.string   'name'
+    t.string   'username'
+    t.index ['email'], name: 'index_users_on_email', unique: true, using: :btree
+    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true, using: :btree
+    t.index ['username'], name: 'index_users_on_username', unique: true, using: :btree
   end
 
-  add_foreign_key "line_items", "carts"
-  add_foreign_key "line_items", "menus"
+  add_foreign_key 'line_items', 'carts'
+  add_foreign_key 'line_items', 'menus'
 end

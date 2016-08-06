@@ -1,8 +1,7 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.describe LineItemsController, :type => :controller do
-  
-  it "creates line_item" do 
+RSpec.describe LineItemsController, type: :controller do
+  it 'creates line_item' do
     l_item = LineItem.create
   end
 end

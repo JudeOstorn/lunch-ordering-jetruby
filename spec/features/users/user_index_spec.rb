@@ -3,9 +3,8 @@ Warden.test_mode!
 
 # Feature: User index page
 #   As a user
-#   I can't see a list of registered users 
+#   I can't see a list of registered users
 feature 'User index page', :devise do
-
   after(:each) do
     Warden.test_reset!
   end
@@ -20,5 +19,4 @@ feature 'User index page', :devise do
     visit users_path
     expect(page).to have_content 'Access denied.'
   end
-
 end

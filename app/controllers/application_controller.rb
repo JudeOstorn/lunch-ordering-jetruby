@@ -13,18 +13,16 @@ class ApplicationController < ActionController::Base
   private
 
   def admin?
-    unless current_user.admin?
-      redirect_to root_path, :alert => "Access denied."
-    end
+    redirect_to root_path, alert: 'Access denied.' unless current_user.admin?
   end
 
   def current_cart
     Cart.find(session[:cart_id])
-    rescue ActiveRecord::RecordNotFound
-      cart = Cart.create
-      session[:cart_id] = cart.id
-      cart
+  rescue ActiveRecord::RecordNotFound
+    cart = Cart.create
+    session[:cart_id] = cart.id
+    cart
   end
-  
+
   helper_method :current_cart
 end

@@ -1,11 +1,11 @@
 class MenusController < ApplicationController
   before_action :set_menu, only: [:show, :edit, :update, :destroy]
   before_action :admin?, only: [:new, :edit, :create, :update, :destroy]
-  before_action :find_menu, only:[:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday]
+  before_action :find_menu, only: [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday]
 
   before_action :authenticate_user!
-  helper_method :sort_column, :sort_direction 
-  
+  helper_method :sort_column, :sort_direction
+
   def sunday
   end
 
@@ -88,18 +88,19 @@ class MenusController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
- 
-    def find_menu
-      @menus = Menu.order(params[:sort])
-    end
 
-    def set_menu
-      @menu = Menu.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def menu_params
-      params.require(:menu).permit(:order_date, :title, :description, :price, :dish_category)
-    end
+  def find_menu
+    @menus = Menu.order(params[:sort])
+  end
+
+  def set_menu
+    @menu = Menu.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def menu_params
+    params.require(:menu).permit(:order_date, :title, :description, :price, :dish_category)
+  end
 end

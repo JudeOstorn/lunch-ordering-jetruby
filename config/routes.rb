@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
 
-  get '/about', to: 'pages#about'
+  get '/about' => 'pages#about'
 
   devise_for :users
   
